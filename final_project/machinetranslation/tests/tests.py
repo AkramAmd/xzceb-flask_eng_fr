@@ -1,11 +1,19 @@
 import unittest
-from machinetranslation.translator import french_to_english, english_to_french
+from translator import french_to_english, english_to_french
 
-class TestFrench_to_english(unittest.TestCase):
-    def test1(self):
-        self.assertIsNone(french_to_english(None),"text is empty")
+class TestMachineTranslation(unittest.TestCase):
+
+    def test_fr_en_null(self):
+        self.assertNotEqual(french_to_english("not null"),None,"null input")
+
+    def test_fr_en(self):
         self.assertEqual(french_to_english('Bonjour'), 'Hello')
-class TestEnglish_to_french(unittest.TestCase):
-    def test2(self):
-        self.assertIsNone(english_to_french(None),"text is empty")
+
+    def test_en_fr_null(self):
+        self.assertNotEqual(english_to_french("not null"),None,"null input")
+
+    def test_en_fr(self):
         self.assertEqual(french_to_english('Hello'), 'Bonjour')
+
+if __name__ == "__main__":
+    unittest.main()
